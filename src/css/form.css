@@ -1,0 +1,64 @@
+labels {
+  font-family: ''Helvetica Neue'', sans-serif;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+}
+
+label {
+  font-weight: bold;
+}
+
+.label-dropdown {
+  margin-right: 10px;
+}
+
+.label-tailwind {
+  margin-top: 10px;
+}
+
+.dropdown {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.textarea-flex {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 35px;
+}
+
+.both-winds {
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+  margin-left: 30px;
+  text-align: center;
+}
+
+.message {
+  font-size: 1rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  margin-top: 20px;
+  background-color: #00A6FF;
+  font-weight: 500;
+  border-radius: 5px;
+  border: none;
+}
+
+.button:hover {
+  cursor: pointer;
+  color: white;
+  border: 1px solid #006398;
+  box-shadow: 2px 2px 20px #AFE9FF;
+}
