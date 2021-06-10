@@ -5,6 +5,7 @@ import * as ReactBootStrap from 'react-bootstrap';
 import RenderQuote from './RenderQuote';
 import Header from './Header';
 import Newform from './Newform';
+import RenderList from './RenderList';
 import './css/app.css'
 // import { base } from './base';
 
@@ -12,14 +13,18 @@ const App = () => {
 
   const [quoteItem, setQuoteItem] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const [values, setValues] = useState({
-      dropdown: '',
+  const [posts, setPosts] = useState([]) //object that is created from submitting form
+  const [values, setValues] = useState({ //actual values of form object properties
+      dropdown: 'thoughts', //initial default state
       message: '',
       headwinds: '',
       tailwinds: ''
     });
 
+//values is the initial state of whats passed into setState['']
+
+
+console.log(posts)
   useEffect(() => {
     fetchData();
   }, []);
@@ -50,6 +55,27 @@ const App = () => {
       })
     }
 
+    const handleClick = (e) => {
+      e.preventDefault();
+      if (values.message === '' || values.headwinds === '' || values.tailwinds === '') {
+        return //ejects from the function
+      }
+
+      let updatedPosts = [
+        ...posts
+      ] //taking the posts and letting it be an array
+
+      updatedPosts.push(values) //taking the array and pushing the values
+      setPosts(updatedPosts) //now setting the state of the new posts
+
+      setValues({
+        dropdown: 'thoughts',
+        message: '',
+        headwinds: '',
+        tailwinds: ''
+      }); // setting the state of the values to an empty object
+    }
+
   return (
     <>
       <Header />
@@ -57,7 +83,9 @@ const App = () => {
       <Newform
         values={values}
         handleChange={handleChange}
+        handleClick={handleClick}
       />
+      <RenderList posts={posts} />
     </>
   );
 }

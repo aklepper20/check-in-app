@@ -13,39 +13,36 @@ const Newform = (props) => {
             <option value="goals">Goals</option>
           </select>
         </div>
-        <div class="textarea-flex">
+        <div className="textarea-flex">
           <label for="message" className="message">Message</label>
           <textarea
-            required
             name="message"
             id="message"
-            placeholder="My thoughts are...">
+            placeholder="My thoughts are..."
             value={props.values.message}
             onChange={props.handleChange}>
           </textarea>
           <div className="both-winds">
             <label for="headwinds">Current Headwinds +</label>
             <textarea
-              required
               name="headwinds"
               id="headwinds"
-              placeholder="We are definitely on our way!">
+              placeholder="We are definitely on our way!"
               value={props.values.headwinds}
               onChange={props.handleChange}>
             </textarea>
             <label for="tailwinds" className="label-tailwind">Current Tailwinds -</label>
             <textarea
-              required
               name="tailwinds"
               id="tailwinds"
-              placeholder="Let's get to tacklin' those obstacles!">
+              placeholder="Let's get to tacklin' those obstacles!"
               value={props.values.tailwinds}
               onChange={props.handleChange}>
             </textarea>
           </div>
         </div>
         <div className="form-actions">
-          <button type="submit" className="button">Submit!</button>
+          <button type="submit" className="button" onClick={props.handleClick}>Add Entry</button>
         </div>
       </form>
     </div>
