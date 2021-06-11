@@ -1,37 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import Newform from './Newform';
 
 const ModalElement = (props) => {
-
+  const [localValues, setLocalValues] = useState({...props.modalItem})
+  //function pass to newform as handlechange, that function is going to call setlocal values
   return (
     <>
-      {props.showModel ? (
 
-        <div className="modal-bg">
-          <div className="modal">
-
-            {/* <div className="modal-header">
-              <h2>Edit Entry</h2>
-              <span onClick={props.closeModal} className="close-modal-btn">x</span>
-            </div>
-
-            <div className="modal-content">
-              <div className="modal-body">
-                <h5>Date of Entry</h5>
-                <div className="modal-dropdown">DROPDOWN</div>
-                <div className="modal-message">MESSAGE</div>
-                <div className="modal-headwinds">HEADWINDS</div>
-                <div className="modal-tailwinds">TAILWINDS</div>
-              </div>
-              <div className="modal-footer">
-                <button className="btn-save">Save</button>
-                <button onClick={props.closeModal} className="btn-close">Close</button>
-              </div>
-            </div> */}
-
-          </div>
-        </div>
-
-      ) : null}
+    <Modal show={props.showModal} onHide={props.closeModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Edit Entry</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Newform values={localValues} isEdit={true} />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={props.closeModal}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={props.closeModal}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   )
 };

@@ -17,6 +17,8 @@ const App = () => {
   const [posts, setPosts] = useState([]) //object that is created from submitting form
   const [selectedPostId, setSelectedPostId] = useState();
   const [showModal, setShowModal] = useState(false);
+  const [modalItem, setModalItem] = useState({})
+
   const [values, setValues] = useState({ //actual values of form object properties
       dropdown: 'thoughts', //initial default state
       message: '',
@@ -50,8 +52,9 @@ const selectedPost = posts.find(post => post.id === selectedPostId);
         </span>
       </Spinner> : quoteItem;
 
-    const openModal = () => {
+    const openModal = (item) => {
       setShowModal(true);
+      setModalItem(item);
     }
 
     const closeModal = () => {
@@ -117,7 +120,7 @@ const selectedPost = posts.find(post => post.id === selectedPostId);
         handleEditPost={handleEditPost}
         openModal={openModal}
       />
-      <ModalElement showModal={showModal} setShowModal={setShowModal} closeModal={closeModal} />
+      <ModalElement showModal={showModal} closeModal={closeModal} modalItem={modalItem} />
     </>
   );
 }

@@ -44,9 +44,10 @@ const Newform = (props) => {
             </textarea>
           </div>
         </div>
-        <div className="form-actions">
+        {!props.isEdit && <div className="form-actions">
           <button type="submit" className="button" onClick={props.handleClick}>Add Entry</button>
-        </div>
+        </div>}
+
       </form>
     </div>
   )

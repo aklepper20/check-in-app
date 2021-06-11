@@ -27,7 +27,7 @@ const RenderList = (props) => {
             </div>
           </div>
           <div>{id}</div>
-        <button onClick={props.openModal}>
+        <button onClick={() => props.openModal(item)}>
           Edit
         </button>
         <button
