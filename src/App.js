@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
-import * as ReactBootStrap from 'react-bootstrap';
 import RenderQuote from './RenderQuote';
 import Header from './Header';
 import Newform from './Newform';
 import RenderList from './RenderList';
+import Modal from './Modal';
+import Spinner from 'react-bootstrap/Spinner'
 import './css/app.css'
 // import { base } from './base';
 
@@ -14,17 +15,19 @@ const App = () => {
   const [quoteItem, setQuoteItem] = useState([]);
   const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState([]) //object that is created from submitting form
+  const [selectedPostId, setSelectedPostId] = useState();
+  const [showModal, setShowModal] = useState(false);
   const [values, setValues] = useState({ //actual values of form object properties
       dropdown: 'thoughts', //initial default state
       message: '',
       headwinds: '',
-      tailwinds: ''
+      tailwinds: '',
+      id: uuidv4()
     });
 
+const selectedPost = posts.find(post => post.id === selectedPostId);
 //values is the initial state of whats passed into setState['']
 
-
-console.log(posts)
   useEffect(() => {
     fetchData();
   }, []);
@@ -41,11 +44,15 @@ console.log(posts)
       });
   };
 
-  const content = loading ? <ReactBootStrap.Spinner size="large" animation="border" role="status" variant="primary">
+  const content = loading ? <Spinner size="large" animation="border" role="status" variant="primary">
     <span className="sr-only">
           Loading...
         </span>
-      </ReactBootStrap.Spinner> : quoteItem;
+      </Spinner> : quoteItem;
+
+    const openModal = () => {
+      setShowModal(prev => !prev);
+    }
 
     const handleChange = (e) => {
       const { name, value } = e.target
@@ -72,9 +79,22 @@ console.log(posts)
         dropdown: 'thoughts',
         message: '',
         headwinds: '',
-        tailwinds: ''
+        tailwinds: '',
+        id: uuidv4()
       }); // setting the state of the values to an empty object
     }
+
+    const handlePostSelect = (id) => {
+      setSelectedPostId(id)
+    };
+
+    const handleEditPost = (id, updatePost)  => {
+      setPosts(posts.map((post) => post.id === id ? updatePost : post))
+    };
+
+    const handleDelete = (id) => {
+       setPosts(posts.filter(post => post.id !== post.id))
+    };
 
   return (
     <>
@@ -84,8 +104,16 @@ console.log(posts)
         values={values}
         handleChange={handleChange}
         handleClick={handleClick}
+        selectedPost={selectedPost}
       />
-      <RenderList posts={posts} />
+      <RenderList
+        posts={posts}
+        handleDelete={handleDelete}
+        handlePostSelect={handlePostSelect}
+        handleEditPost={handleEditPost}
+        openModal={openModal}
+      />
+      <Modal showModal={showModal} setShowModal={setShowModal}/>
     </>
   );
 }

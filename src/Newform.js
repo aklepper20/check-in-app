@@ -1,9 +1,11 @@
 import React from 'react';
-
+import { v4 as uuidv4 } from 'uuid';
 const Newform = (props) => {
 
   return (
-    <div className="form-container">
+    <div
+      className="form-container"
+      value={props.values.id}>
       <form className="form">
         <div className="dropdown">
           <label for="dropdown" className="label-dropdown">What's this post about?</label>

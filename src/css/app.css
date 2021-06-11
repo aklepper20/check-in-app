@@ -3,6 +3,7 @@
 @import 'header.css';
 @import 'form.css';
 @import 'renderlist.css';
+@import 'modal.css';
 
 
 *, *::before, *::after {
