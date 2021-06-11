@@ -5,7 +5,7 @@ import RenderQuote from './RenderQuote';
 import Header from './Header';
 import Newform from './Newform';
 import RenderList from './RenderList';
-import Modal from './Modal';
+import ModalElement from './ModalElement';
 import Spinner from 'react-bootstrap/Spinner'
 import './css/app.css'
 // import { base } from './base';
@@ -51,7 +51,11 @@ const selectedPost = posts.find(post => post.id === selectedPostId);
       </Spinner> : quoteItem;
 
     const openModal = () => {
-      setShowModal(prev => !prev);
+      setShowModal(true);
+    }
+
+    const closeModal = () => {
+      setShowModal(false);
     }
 
     const handleChange = (e) => {
@@ -95,7 +99,7 @@ const selectedPost = posts.find(post => post.id === selectedPostId);
     const handleDelete = (id) => {
        setPosts(posts.filter(post => post.id !== post.id))
     };
-
+    console.log(selectedPost)
   return (
     <>
       <Header />
@@ -113,11 +117,9 @@ const selectedPost = posts.find(post => post.id === selectedPostId);
         handleEditPost={handleEditPost}
         openModal={openModal}
       />
-      <Modal showModal={showModal} setShowModal={setShowModal}/>
+      <ModalElement showModal={showModal} setShowModal={setShowModal} closeModal={closeModal} />
     </>
   );
 }
-
-
 
 export default App;
