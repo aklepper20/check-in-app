@@ -15,10 +15,8 @@ const App = () => {
   const [quoteItem, setQuoteItem] = useState([]);
   const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState([]) //object that is created from submitting form
-  const [selectedPostId, setSelectedPostId] = useState();
   const [showModal, setShowModal] = useState(false);
   const [modalItem, setModalItem] = useState({})
-
   const [values, setValues] = useState({ //actual values of form object properties
       dropdown: 'thoughts', //initial default state
       message: '',
@@ -26,9 +24,6 @@ const App = () => {
       tailwinds: '',
       id: uuidv4()
     });
-
-const selectedPost = posts.find(post => post.id === selectedPostId);
-//values is the initial state of whats passed into setState['']
 
   useEffect(() => {
     fetchData();
@@ -91,10 +86,6 @@ const selectedPost = posts.find(post => post.id === selectedPostId);
       }); // setting the state of the values to an empty object
     }
 
-    const handlePostSelect = (id) => {
-      setSelectedPostId(id)
-    };
-
     const handleEditPost = (id, updatePost)  => {
       setPosts(posts.map((post) => post.id === id ? updatePost : post))
     };
@@ -102,7 +93,7 @@ const selectedPost = posts.find(post => post.id === selectedPostId);
     const handleDelete = (id) => {
        setPosts(posts.filter(post => post.id !== post.id))
     };
-    console.log(selectedPost)
+
   return (
     <>
       <Header />
@@ -111,12 +102,10 @@ const selectedPost = posts.find(post => post.id === selectedPostId);
         values={values}
         handleChange={handleChange}
         handleClick={handleClick}
-        selectedPost={selectedPost}
       />
       <RenderList
         posts={posts}
         handleDelete={handleDelete}
-        handlePostSelect={handlePostSelect}
         handleEditPost={handleEditPost}
         openModal={openModal}
       />
