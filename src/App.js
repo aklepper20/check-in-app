@@ -13,7 +13,7 @@ const App = () => {
 
   const [quoteItem, setQuoteItem] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [posts, setPosts] = useState([]) //object that is created from submitting form
+  const [posts, setPosts] = useState([])
   const [showModal, setShowModal] = useState(false);
   const [modalItem, setModalItem] = useState({});
   const [values, setValues] = useState({ //actual values of form object properties
@@ -46,9 +46,12 @@ const App = () => {
         </span>
       </Spinner> : quoteItem;
 
-    const openModal = (item) => {
+    const openModal = (id) => {
       setShowModal(true);
-      setModalItem(item);
+      const post = posts.find(post =>
+        post.id === id)
+        console.log(post)
+      setModalItem(post)
     }
 
     const closeModal = () => {
@@ -89,8 +92,10 @@ const App = () => {
       setPosts(posts.map((post) => post.id === id ? updatePost : post))
     };
 
-    const handleDelete = () => {
-    console.log('hi')
+    const handleDelete = (id) => {
+      setPosts(posts.filter(post => {
+        return post.id !== id
+      }))
     };
 
   return (
@@ -107,6 +112,11 @@ const App = () => {
       />
       <RenderList
         posts={posts}
+        handleChange={handleChange}
+        handleClick={handleClick}
+        handleDelete={handleDelete}
+        handleEditPost={handleEditPost}
+        openModal={openModal}
       />
       <ModalElement showModal={showModal} closeModal={closeModal} modalItem={modalItem} />
     </>

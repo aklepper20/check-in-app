@@ -4,8 +4,9 @@ import Button from 'react-bootstrap/Button';
 import Newform from './Newform';
 
 const ModalElement = (props) => {
-  const [localValues, setLocalValues] = useState({...props.modalItem});
-
+  const [localValues, setLocalValues] = useState(props.modalItem);
+  console.log(props.modalItem)
+  console.log('localValues', localValues)
   //function pass to newform as handlechange, that function is going to call setlocal values
 
   const handleUpdateChange = (changes) => {
@@ -24,7 +25,15 @@ const ModalElement = (props) => {
           <Modal.Title>Edit Entry</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Newform values={localValues} isEdit={true} isDelete={true}/>
+          <Newform
+            values={localValues}
+            dropdown={localValues.dropdown}
+            message={localValues.message}
+            headwinds={localValues.headwinds}
+            tailwinds={localValues.tailwinds}
+            isEdit={true}
+            isDelete={true}
+          />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={props.closeModal}>

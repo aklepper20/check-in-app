@@ -19,8 +19,8 @@ const Newform = (props) => {
     <div
       className="form-container"
       value={id}>
-      <form className="form">
-        <div className="dropdown">
+      {/* <form className="form">  */}
+         <div className="dropdown">
           <label for="dropdown" className="label-dropdown">What's this post about?</label>
           <select name="dropdown" id="dropdown" value={dropdown} onChange={handleChange}>
             <option value="thoughts">Thoughts</option>
@@ -28,7 +28,7 @@ const Newform = (props) => {
             <option value="goals">Goals</option>
           </select>
         </div>
-        <div className="textarea-flex">
+         <div className="textarea-flex">
           <label for="message" className="message">Message</label>
           <textarea
             name="message"
@@ -63,9 +63,11 @@ const Newform = (props) => {
           <button onClick={() => openModal(props.id)}>Edit</button>
         </div>}
         {props.isDelete && <div>
-          <button onClick={() => handleDelete(id)}>Delete</button>
+          <button onClick={() => {
+            handleDelete(id)
+            console.log('deleting')}}>Delete</button>
         </div>}
-      </form>
+       {/* </form>  */}
     </div>
   )
 };
