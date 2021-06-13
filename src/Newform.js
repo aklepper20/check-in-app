@@ -3,14 +3,26 @@ import { v4 as uuidv4 } from 'uuid';
 
 const Newform = (props) => {
 
+  const {
+    handleChange,
+    handleClick,
+    openModal,
+    handleDelete,
+    id,
+    dropdown,
+    message,
+    headwinds,
+    tailwinds
+  } = props
+
   return (
     <div
       className="form-container"
-      value={props.id}>
+      value={id}>
       <form className="form">
         <div className="dropdown">
           <label for="dropdown" className="label-dropdown">What's this post about?</label>
-          <select name="dropdown" id="dropdown" value={props.dropdown} onChange={props.handleChange}>
+          <select name="dropdown" id="dropdown" value={dropdown} onChange={handleChange}>
             <option value="thoughts">Thoughts</option>
             <option value="ideas">Ideas</option>
             <option value="goals">Goals</option>
@@ -22,8 +34,8 @@ const Newform = (props) => {
             name="message"
             id="message"
             placeholder="My thoughts are..."
-            value={props.message}
-            onChange={props.handleChange}>
+            value={message}
+            onChange={handleChange}>
           </textarea>
           <div className="both-winds">
             <label for="headwinds">Current Headwinds +</label>
@@ -31,31 +43,28 @@ const Newform = (props) => {
               name="headwinds"
               id="headwinds"
               placeholder="We are definitely on our way!"
-              value={props.headwinds}
-              onChange={props.handleChange}>
+              value={headwinds}
+              onChange={handleChange}>
             </textarea>
             <label for="tailwinds" className="label-tailwind">Current Tailwinds -</label>
             <textarea
               name="tailwinds"
               id="tailwinds"
               placeholder="Let's get to tacklin' those obstacles!"
-              value={props.tailwinds}
-              onChange={props.handleChange}>
+              value={tailwinds}
+              onChange={handleChange}>
             </textarea>
           </div>
         </div>
         {!props.isEdit && <div className="form-actions">
-          <button type="submit" className="button" onClick={props.handleClick}>Add Entry</button>
+          <button type="submit" className="button" onClick={handleClick}>Add Entry</button>
         </div>}
-
         {props.isEdit && <div>
-          <button onClick={() => props.openModal(props.post)}>Edit</button>
+          <button onClick={() => openModal(props.id)}>Edit</button>
         </div>}
-
         {props.isDelete && <div>
-          <button onClick={() => props.handleDelete(props.id)}>Delete</button>
+          <button onClick={() => handleDelete(id)}>Delete</button>
         </div>}
-
       </form>
     </div>
   )

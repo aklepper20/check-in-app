@@ -1,13 +1,13 @@
 import React from 'react';
 import Newform from './Newform';
 import { v4 as uuidv4 } from 'uuid';
+import { propTypes } from 'react-bootstrap/esm/Image';
 
-const RenderList = (props) => {
+const RenderList = ({ posts, handleDelete }) => {
 
   return (
    <div className="render-list">
-
-      {props.posts.map(post => {
+      {posts.map(post => {
         return (
           <Newform
             key={post.id}

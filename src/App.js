@@ -8,7 +8,6 @@ import RenderList from './RenderList';
 import ModalElement from './ModalElement';
 import Spinner from 'react-bootstrap/Spinner'
 import './css/app.css'
-// import { base } from './base';
 
 const App = () => {
 
@@ -16,7 +15,7 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState([]) //object that is created from submitting form
   const [showModal, setShowModal] = useState(false);
-  const [modalItem, setModalItem] = useState({})
+  const [modalItem, setModalItem] = useState({});
   const [values, setValues] = useState({ //actual values of form object properties
       dropdown: 'thoughts', //initial default state
       message: '',
@@ -90,8 +89,8 @@ const App = () => {
       setPosts(posts.map((post) => post.id === id ? updatePost : post))
     };
 
-    const handleDelete = (id) => {
-       setPosts(posts.filter(post => post.id !== post.id))
+    const handleDelete = () => {
+    console.log('hi')
     };
 
   return (
@@ -102,16 +101,16 @@ const App = () => {
         values={values}
         handleChange={handleChange}
         handleClick={handleClick}
-      />
-      <RenderList
-        posts={posts}
         handleDelete={handleDelete}
         handleEditPost={handleEditPost}
         openModal={openModal}
       />
+      <RenderList
+        posts={posts}
+      />
       <ModalElement showModal={showModal} closeModal={closeModal} modalItem={modalItem} />
     </>
-  );
-}
+    );
+  }
 
 export default App;

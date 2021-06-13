@@ -39,8 +39,6 @@ const ModalElement = (props) => {
   )
 };
 
-
-
 export default ModalElement;
 
 //change onclick save changes that will take localstate that has been changed and publish it in the
