@@ -7,6 +7,12 @@ labels {
   justify-content: center;
 }
 
+.form {
+  background-color: #d9cce8;
+  margin: 12px;
+  padding: 15px;
+}
+
 label {
   font-weight: bold;
 }
@@ -17,6 +23,12 @@ label {
 
 .label-tailwind {
   margin-top: 10px;
+}
+
+input,
+textarea {
+  background-color: #e4e9ef;
+
 }
 
 .dropdown {
@@ -40,7 +52,7 @@ label {
 }
 
 .message {
-  font-size: 1rem;
+  font-size: 1rem
 }
 
 .form-actions {
@@ -61,4 +73,12 @@ label {
   color: white;
   border: 1px solid #006398;
   box-shadow: 2px 2px 20px #AFE9FF;
+}
+
+.edit-btn {
+
+}
+
+.delete-btn {
+
 }

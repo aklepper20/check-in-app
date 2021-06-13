@@ -2,7 +2,9 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <h2 className="header">SELF CHECK-IN</h2>
+    <div className="header-container">
+      <h2 className="header"><i><span className="quick">QUICK</span></i> CHECK-IN</h2>
+    </div>
   )
 };
 

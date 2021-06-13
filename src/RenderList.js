@@ -1,7 +1,6 @@
 import React from 'react';
 import Newform from './Newform';
 import { v4 as uuidv4 } from 'uuid';
-import { propTypes } from 'react-bootstrap/esm/Image';
 
 const RenderList = ( props ) => {
 
@@ -11,7 +10,8 @@ const RenderList = ( props ) => {
     handleClick,
     handleDelete,
     handleEditPost,
-    openModal
+    openModal,
+    modalItem
   } = props
 
   return (
@@ -22,10 +22,11 @@ const RenderList = ( props ) => {
             key={post.id}
             {...post}
             handleChange={handleChange}
-        handleClick={handleClick}
-        handleDelete={handleDelete}
-        handleEditPost={handleEditPost}
-        openModal={openModal}
+            handleClick={handleClick}
+            handleDelete={handleDelete}
+            handleEditPost={handleEditPost}
+            openModal={openModal}
+            modalItem={modalItem}
             isEdit={true}
             isDelete={true}
           />

@@ -8,6 +8,7 @@ import RenderList from './RenderList';
 import ModalElement from './ModalElement';
 import Spinner from 'react-bootstrap/Spinner'
 import './css/app.css'
+import swal from 'sweetalert';
 
 const App = () => {
 
@@ -17,7 +18,7 @@ const App = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalItem, setModalItem] = useState({});
   const [values, setValues] = useState({ //actual values of form object properties
-      dropdown: 'thoughts', //initial default state
+      dropdown: '', //initial default state
       message: '',
       headwinds: '',
       tailwinds: '',
@@ -50,7 +51,6 @@ const App = () => {
       setShowModal(true);
       const post = posts.find(post =>
         post.id === id)
-        console.log(post)
       setModalItem(post)
     }
 
@@ -69,6 +69,7 @@ const App = () => {
     const handleClick = (e) => {
       e.preventDefault();
       if (values.message === '' || values.headwinds === '' || values.tailwinds === '') {
+        swal('Entry Error:', 'Please make sure all inputs are filled out.')
         return //ejects from the function
       }
 
@@ -80,7 +81,7 @@ const App = () => {
       setPosts(updatedPosts) //now setting the state of the new posts
 
       setValues({
-        dropdown: 'thoughts',
+        dropdown: '',
         message: '',
         headwinds: '',
         tailwinds: '',
@@ -108,17 +109,25 @@ const App = () => {
         handleClick={handleClick}
         handleDelete={handleDelete}
         handleEditPost={handleEditPost}
+        modalItem={modalItem}
         openModal={openModal}
       />
       <RenderList
+        values={values}
         posts={posts}
         handleChange={handleChange}
         handleClick={handleClick}
         handleDelete={handleDelete}
         handleEditPost={handleEditPost}
+        modalItem={modalItem}
         openModal={openModal}
       />
-      <ModalElement showModal={showModal} closeModal={closeModal} modalItem={modalItem} />
+      <ModalElement
+        values={values}
+        showModal={showModal}
+        closeModal={closeModal}
+        modalItem={modalItem}
+        />
     </>
     );
   }

@@ -19,21 +19,25 @@ const Newform = (props) => {
     <div
       className="form-container"
       value={id}>
-      {/* <form className="form">  */}
+      <div className="form">
          <div className="dropdown">
           <label for="dropdown" className="label-dropdown">What's this post about?</label>
-          <select name="dropdown" id="dropdown" value={dropdown} onChange={handleChange}>
-            <option value="thoughts">Thoughts</option>
-            <option value="ideas">Ideas</option>
-            <option value="goals">Goals</option>
-          </select>
+          <input
+            type="text"
+            required
+            name="dropdown"
+            id="dropdown"
+            placeholder="Thoughts/Ideas/Goals?"
+            value={dropdown}
+            onChange={handleChange}
+          />
         </div>
          <div className="textarea-flex">
-          <label for="message" className="message">Message</label>
+          <label for="message" className="message">Journal Entry</label>
           <textarea
             name="message"
             id="message"
-            placeholder="My thoughts are..."
+            placeholder="Whatcha thinking about..."
             value={message}
             onChange={handleChange}>
           </textarea>
@@ -42,7 +46,7 @@ const Newform = (props) => {
             <textarea
               name="headwinds"
               id="headwinds"
-              placeholder="We are definitely on our way!"
+              placeholder="What are you rockin' at?"
               value={headwinds}
               onChange={handleChange}>
             </textarea>
@@ -50,7 +54,7 @@ const Newform = (props) => {
             <textarea
               name="tailwinds"
               id="tailwinds"
-              placeholder="Let's get to tacklin' those obstacles!"
+              placeholder="Game plan for those obstacles.."
               value={tailwinds}
               onChange={handleChange}>
             </textarea>
@@ -60,14 +64,14 @@ const Newform = (props) => {
           <button type="submit" className="button" onClick={handleClick}>Add Entry</button>
         </div>}
         {props.isEdit && <div>
-          <button onClick={() => openModal(props.id)}>Edit</button>
+          <button className="edit-btn" onClick={() => openModal(props.id)}>Edit</button>
         </div>}
         {props.isDelete && <div>
-          <button onClick={() => {
+          <button className="delete-btn" onClick={() => {
             handleDelete(id)
             console.log('deleting')}}>Delete</button>
         </div>}
-       {/* </form>  */}
+       </div>
     </div>
   )
 };
