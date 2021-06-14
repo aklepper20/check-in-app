@@ -9,6 +9,7 @@ import ModalElement from './ModalElement';
 import Spinner from 'react-bootstrap/Spinner'
 import './css/app.css'
 import swal from 'sweetalert';
+import moment from 'moment';
 
 const App = () => {
 
@@ -22,7 +23,8 @@ const App = () => {
       message: '',
       headwinds: '',
       tailwinds: '',
-      id: uuidv4()
+      id: uuidv4(),
+      createdAt: moment().format("MMM Do YY")
     });
 
   useEffect(() => {
@@ -85,7 +87,8 @@ const App = () => {
         message: '',
         headwinds: '',
         tailwinds: '',
-        id: uuidv4()
+        id: uuidv4(),
+        createdAt: moment().format("MMM Do YY")
       }); // setting the state of the values to an empty object
     }
 

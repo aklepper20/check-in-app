@@ -12,7 +12,8 @@ const Newform = (props) => {
     dropdown,
     message,
     headwinds,
-    tailwinds
+    tailwinds,
+    createdAt
   } = props
 
   return (
@@ -20,6 +21,11 @@ const Newform = (props) => {
       className="form-container"
       value={id}>
       <div className="form">
+        <div
+          className="timestamp"
+          value={createdAt}>
+            {createdAt}
+        </div>
           {props.isEdit && <div>
             <button className="edit-btn" onClick={() => openModal(props.id)}>Edit</button>
           </div>}
@@ -72,7 +78,6 @@ const Newform = (props) => {
         {!props.isEdit && <div className="form-actions">
           <button type="submit" className="add-btn" onClick={handleClick}>Add Entry</button>
         </div>}
-
        </div>
     </div>
   )
