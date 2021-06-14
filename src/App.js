@@ -18,6 +18,7 @@ const App = () => {
   const [posts, setPosts] = useState([])
   const [showModal, setShowModal] = useState(false);
   const [modalItem, setModalItem] = useState({});
+  const [selectedEntryId, setSelectedEntryId] = useState()
   const [values, setValues] = useState({ //actual values of form object properties
       dropdown: '', //initial default state
       message: '',
@@ -26,6 +27,7 @@ const App = () => {
       id: uuidv4(),
       createdAt: moment().format("MMM Do YY")
     });
+
 
   useEffect(() => {
     fetchData();
@@ -92,15 +94,16 @@ const App = () => {
       }); // setting the state of the values to an empty object
     }
 
-    const handleEditPost = (id, updatePost)  => {
-      setPosts(posts.map((post) => post.id === id ? updatePost : post))
-    };
+    // const handleEditPost = (id, updatePost)  => {
+    //   setPosts(posts.map((post) => post.id === id ? updatePost : post))
+    // };
 
     const handleDelete = (id) => {
       setPosts(posts.filter(post => {
         return post.id !== id
       }))
     };
+
 
   return (
     <>
@@ -111,7 +114,7 @@ const App = () => {
         handleChange={handleChange}
         handleClick={handleClick}
         handleDelete={handleDelete}
-        handleEditPost={handleEditPost}
+        // handleEditPost={handleEditPost}
         modalItem={modalItem}
         openModal={openModal}
       />
@@ -121,7 +124,7 @@ const App = () => {
         handleChange={handleChange}
         handleClick={handleClick}
         handleDelete={handleDelete}
-        handleEditPost={handleEditPost}
+        // handleEditPost={handleEditPost}
         modalItem={modalItem}
         openModal={openModal}
       />

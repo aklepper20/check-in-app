@@ -8,7 +8,7 @@ const RenderList = ( props ) => {
     handleChange,
     handleClick,
     handleDelete,
-    handleEditPost,
+    // handleEditPost,
     openModal,
     modalItem
   } = props
@@ -23,7 +23,7 @@ const RenderList = ( props ) => {
             handleChange={handleChange}
             handleClick={handleClick}
             handleDelete={handleDelete}
-            handleEditPost={handleEditPost}
+            // handleEditPost={handleEditPost}
             openModal={openModal}
             modalItem={modalItem}
             isEdit={true}
