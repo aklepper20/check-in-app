@@ -29,8 +29,8 @@ const Newform = (props) => {
               console.log('deleting')}}>Delete</button>
           </div>}
         <h2>ENTRY #</h2>
-         <div className="dropdown">
-          <label for="dropdown" className="label-dropdown">What's this post about?</label>
+         <div className="div-dropdown">
+          <label htmlFor="dropdown" className="label-dropdown">What's this post about?</label>
           <input
             type="text"
             required
@@ -42,16 +42,16 @@ const Newform = (props) => {
           />
         </div>
          <div className="textarea-flex">
-          <label for="message" className="message">Journal Entry</label>
+          <label htmlFor="message" className="message"></label>
           <textarea
             name="message"
             id="message"
-            placeholder="Whatcha thinking about..."
+            placeholder="My current feelings are..."
             value={message}
             onChange={handleChange}>
           </textarea>
-          <div className="both-winds">
-            <label for="headwinds">PROS: Headwinds</label>
+          <div className="head-tail-flex">
+            <label htmlFor="headwinds">PROS: Headwinds</label>
             <textarea
               name="headwinds"
               id="headwinds"
@@ -59,7 +59,7 @@ const Newform = (props) => {
               value={headwinds}
               onChange={handleChange}>
             </textarea>
-            <label for="tailwinds" className="label-tailwind">CONS: Tailwinds</label>
+            <label htmlFor="tailwinds" className="label-tailwind">CONS: Tailwinds</label>
             <textarea
               name="tailwinds"
               id="tailwinds"
