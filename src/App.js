@@ -14,10 +14,8 @@ const LOCAL_STORAGE_KEY = 'journal.posts';
 const App = () => {
 
   const [quoteItem, setQuoteItem] = useState([]);
-  let [count, setCount] = useState(1)
   const [posts, setPosts] = useState([]);
   const [values, setValues] = useState({
-      count: count,
       dropdown: '',
       message: '',
       headwinds: '',
@@ -67,7 +65,6 @@ const App = () => {
       updatedPosts.push(values)
       setPosts(updatedPosts)
       setValues({
-          count: '',
           dropdown: '',
           message: '',
           headwinds: '',
@@ -77,14 +74,6 @@ const App = () => {
         })
     };
 
-    //  const handleCount = (count) => {
-    //   setCount(count => count + 1)
-    // };
-
-    // const handleEditBtn = (count) => {
-    //   handleClick();
-    //   handleCount();
-    // };
 
     const handleChange = (e) => {
       const { name, value } = e.target
@@ -109,7 +98,6 @@ const App = () => {
         handleChange={handleChange}
         handleClick={handleClick}
         handleDelete={handleDelete}
-        count={count}
       />
       <RenderList
         values={values}
@@ -117,7 +105,6 @@ const App = () => {
         handleChange={handleChange}
         handleClick={handleClick}
         handleDelete={handleDelete}
-        count={count}
       />
     </>
     );
