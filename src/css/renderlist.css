@@ -1,6 +1,4 @@
 .render-list {
-  background-color: #f5d31d;
-  border-top: 15px solid black;
   display: flex;
   flex-wrap: wrap;
   /* justify-content: space-around;
@@ -10,7 +8,6 @@
 .timestamp {
   margin-top: 8px;
   text-align: right;
-  font-family: 'Caveat', cursive;
   font-size: 1.5rem;
   font-weight: bold;
 }

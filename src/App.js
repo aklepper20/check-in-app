@@ -99,16 +99,14 @@ const App = () => {
   return (
     <>
     <PostContext.Provider value={postContextValue}>
-      <Header />
+      <div className="main-container">
+        <Header />
+        <Newform values={values}/>
+      </div>
       <RenderQuote content={content} />
-      <Newform values={values}
-      />
       <RenderList
         values={values}
         posts={posts}
-        // handleChange={handleChange}
-        // handleClick={handleClick}
-        // handleDelete={handleDelete}
       />
     </PostContext.Provider>
     </>

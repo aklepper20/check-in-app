@@ -1,5 +1,3 @@
-
-
 label {
   font-weight: bold;
 }
@@ -12,11 +10,10 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f5d31d;
+
 }
 
 .form {
-  font-family: 'Verdana', Geneva, Tahoma, sans-serif;
   max-width: 100%;
   border: 5px solid black;
   background-color: rgba(199, 225, 230, 1);
@@ -74,23 +71,14 @@ button {
 }
 
 .add-btn {
-  color: whitesmoke;
-  background-color: #49598c;
   margin-top: 15px;
 }
 
-.add-btn:hover,
-.edit-btn:hover {
+.add-btn:hover {
   cursor: pointer;
   color: black;
   border: 1px solid black;
   background-color:rgba(139, 192, 203, 1);
-}
-
-.edit-btn {
-  color: whitesmoke;
-  background-color: #49598c;
-  margin-bottom: 8px;
 }
 
 .delete-btn {
@@ -99,6 +87,7 @@ button {
 }
 
 .delete-btn:hover {
+
   cursor: pointer;
   color: black;
   border: 1px solid black;

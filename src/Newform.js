@@ -24,7 +24,7 @@ const Newform = (props) => {
             {createdAt}
         </div>
         <h2>
-          ENTRY
+          Self Check-in
         </h2>
          <div className="div-dropdown">
           <label htmlFor="dropdown" className="label-dropdown">What's this post about?</label>
@@ -67,14 +67,18 @@ const Newform = (props) => {
           </div>
         </div>
         {!props.isDelete && <div className="form-actions">
-          <button className="add-btn"
-          onClick={() => {handleClick()}}
-            >
-            Add Entry
+          <button
+            className="delete-btn"
+            onClick={() => {handleClick()}}>
+              Add
           </button>
         </div>}
           {props.isDelete && <div>
-             <i className="fas fa-trash-alt" onClick={() => {handleDelete(id)}}> </i>
+             <button
+              className="add-btn"
+              onClick={() => {handleDelete(id)}}>
+                Delete
+            </button>
           </div>}
        </div>
     </div>

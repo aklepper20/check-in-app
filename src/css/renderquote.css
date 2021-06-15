@@ -5,21 +5,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f5d31d;
 }
 
 .content-quote {
+  margin-top: 15px;
   margin-bottom: 15px;
   font-family: 'Caveat', cursive;
   font-size: 1.3rem;
   font-weight: 700;
-  border-top: 7px dashed black;
-  border-bottom: 7px dashed black;
   padding-bottom: 5px;
 }
 
 .content-author {
-  font-family: 'Lato', sans-serif;
   font-size: small;
   font-weight: 700;
   text-align: right;
