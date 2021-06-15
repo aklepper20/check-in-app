@@ -1,18 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { PostContext } from './App';
+
 const Newform = (props) => {
 
+  const { handleChange, handleClick, handleDelete } = useContext(PostContext);
   const {
-    handleChange,
-    handleDelete,
-    count,
-    handleClick,
     id,
     dropdown,
     message,
     headwinds,
     tailwinds,
     createdAt
-  } = props
+  } = props;
 
   return (
     <div
@@ -27,11 +26,6 @@ const Newform = (props) => {
         <h2>
           ENTRY
         </h2>
-        <div className="count">
-          <h3 value={count}>
-            {count}
-          </h3>
-        </div>
          <div className="div-dropdown">
           <label htmlFor="dropdown" className="label-dropdown">What's this post about?</label>
           <input
@@ -74,15 +68,13 @@ const Newform = (props) => {
         </div>
         {!props.isDelete && <div className="form-actions">
           <button className="add-btn"
-          onClick={() => {
-            handleClick()}}
+          onClick={() => {handleClick()}}
             >
             Add Entry
           </button>
         </div>}
           {props.isDelete && <div>
-             <i className="fas fa-trash-alt" onClick={() => {
-              handleDelete(id)}}> </i>
+             <i className="fas fa-trash-alt" onClick={() => {handleDelete(id)}}> </i>
           </div>}
        </div>
     </div>

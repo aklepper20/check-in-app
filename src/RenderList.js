@@ -4,10 +4,7 @@ import Newform from './Newform';
 const RenderList = (props) => {
 
   const {
-    posts,
-    handleChange,
-    handleClick,
-    handleDelete
+    posts
   } = props;
 
   const arrPosts = posts.reverse();
@@ -21,17 +18,12 @@ const RenderList = (props) => {
           <Newform
             key={post.id}
             {...post}
-            handleChange={handleChange}
-            handleClick={handleClick}
-            handleDelete={handleDelete}
             isDelete={true}
           />
         )
       })}
       </div>
-
   )
-  console.log(arrPosts)
 }
 
 export default RenderList;

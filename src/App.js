@@ -9,6 +9,7 @@ import swal from 'sweetalert';
 import moment from 'moment';
 import './css/app.css';
 
+export const PostContext = React.createContext();
 const LOCAL_STORAGE_KEY = 'journal.posts';
 
 const App = () => {
@@ -89,25 +90,29 @@ const App = () => {
       }));
     };
 
+     const postContextValue = {
+      handleClick,
+      handleChange,
+      handleDelete
+    };
+
   return (
     <>
+    <PostContext.Provider value={postContextValue}>
       <Header />
       <RenderQuote content={content} />
-      <Newform
-        values={values}
-        handleChange={handleChange}
-        handleClick={handleClick}
-        handleDelete={handleDelete}
+      <Newform values={values}
       />
       <RenderList
         values={values}
         posts={posts}
-        handleChange={handleChange}
-        handleClick={handleClick}
-        handleDelete={handleDelete}
+        // handleChange={handleChange}
+        // handleClick={handleClick}
+        // handleDelete={handleDelete}
       />
+    </PostContext.Provider>
     </>
-    );
+    )
   }
 
 export default App;
