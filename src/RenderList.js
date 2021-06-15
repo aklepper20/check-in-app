@@ -1,19 +1,16 @@
 import React from 'react';
 import Newform from './Newform';
-
-const RenderList = ( props ) => {
+const RenderList = (props) => {
 
   const {
     posts,
     handleChange,
     handleClick,
-    handleDelete,
-    // handleEditPost,
-    openModal,
-    modalItem
+    handleDelete
   } = props
 
   return (
+
    <div className="render-list">
       {posts.map(post => {
         return (
@@ -23,15 +20,12 @@ const RenderList = ( props ) => {
             handleChange={handleChange}
             handleClick={handleClick}
             handleDelete={handleDelete}
-            // handleEditPost={handleEditPost}
-            openModal={openModal}
-            modalItem={modalItem}
-            isEdit={true}
             isDelete={true}
           />
         )
       })}
       </div>
+
   )
 }
 

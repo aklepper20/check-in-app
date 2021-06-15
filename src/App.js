@@ -5,22 +5,20 @@ import RenderQuote from './RenderQuote';
 import Header from './Header';
 import Newform from './Newform';
 import RenderList from './RenderList';
-import ModalElement from './ModalElement';
-import Spinner from 'react-bootstrap/Spinner'
-import './css/app.css'
 import swal from 'sweetalert';
 import moment from 'moment';
+import './css/app.css';
+
+const LOCAL_STORAGE_KEY = 'journal.posts';
 
 const App = () => {
 
   const [quoteItem, setQuoteItem] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [posts, setPosts] = useState([])
-  const [showModal, setShowModal] = useState(false);
-  const [modalItem, setModalItem] = useState({});
-  const [selectedEntryId, setSelectedEntryId] = useState()
-  const [values, setValues] = useState({ //actual values of form object properties
-      dropdown: '', //initial default state
+  let [count, setCount] = useState(1)
+  const [posts, setPosts] = useState([]);
+  const [values, setValues] = useState({
+      count: count,
+      dropdown: '',
       message: '',
       headwinds: '',
       tailwinds: '',
@@ -28,16 +26,24 @@ const App = () => {
       createdAt: moment().format("MMM Do YY")
     });
 
-
   useEffect(() => {
     fetchData();
   }, []);
 
-  const fetchData = () => {
+   useEffect(() => {
+    const postsJSON = localStorage.getItem(LOCAL_STORAGE_KEY)
+    if (postsJSON != null) setPosts(JSON.parse(postsJSON))
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(posts))
+  }, [posts]);
+
+
+ const fetchData = () => {
     const ENDPOINT = 'https://free-quotes-api.herokuapp.com/';
     axios(ENDPOINT)
       .then((res) => {
-        setLoading(false);
         console.log(res.data);
         setQuoteItem(Object.values(res.data));
       }).catch((err) => {
@@ -45,22 +51,40 @@ const App = () => {
       });
   };
 
-  const content = loading ? <Spinner size="large" animation="border" role="status" variant="primary">
-    <span className="sr-only">
-          Loading...
-        </span>
-      </Spinner> : quoteItem;
+  const content = quoteItem;
 
-    const openModal = (id) => {
-      setShowModal(true);
-      const post = posts.find(post =>
-        post.id === id)
-      setModalItem(post)
-    }
+    const handleClick = () => {
 
-    const closeModal = () => {
-      setShowModal(false);
-    }
+      if (values.dropdown === '' || values.message === '' ||
+          values.headwinds === '' || values.tailwinds === '') {
+        swal('Entry Error:', 'Please make sure all inputs are filled out.')
+        return
+      }
+
+      let updatedPosts = [
+        ...posts
+      ]
+      updatedPosts.push(values)
+      setPosts(updatedPosts)
+      setValues({
+          count: '',
+          dropdown: '',
+          message: '',
+          headwinds: '',
+          tailwinds: '',
+          id: uuidv4(),
+          createdAt: moment().format("MMM Do YY")
+        })
+    };
+
+    //  const handleCount = (count) => {
+    //   setCount(count => count + 1)
+    // };
+
+    // const handleEditBtn = (count) => {
+    //   handleClick();
+    //   handleCount();
+    // };
 
     const handleChange = (e) => {
       const { name, value } = e.target
@@ -68,42 +92,13 @@ const App = () => {
         ...values,
         [name]: value
       })
-    }
-
-    const handleClick = (e) => {
-      e.preventDefault();
-      if (values.message === '' || values.headwinds === '' || values.tailwinds === '') {
-        swal('Entry Error:', 'Please make sure all inputs are filled out.')
-        return //ejects from the function
-      }
-
-      let updatedPosts = [
-        ...posts
-      ] //taking the posts and letting it be an array
-
-      updatedPosts.push(values) //taking the array and pushing the values
-      setPosts(updatedPosts) //now setting the state of the new posts
-
-      setValues({
-        dropdown: '',
-        message: '',
-        headwinds: '',
-        tailwinds: '',
-        id: uuidv4(),
-        createdAt: moment().format("MMM Do YY")
-      }); // setting the state of the values to an empty object
-    }
-
-    // const handleEditPost = (id, updatePost)  => {
-    //   setPosts(posts.map((post) => post.id === id ? updatePost : post))
-    // };
+    };
 
     const handleDelete = (id) => {
       setPosts(posts.filter(post => {
         return post.id !== id
-      }))
+      }));
     };
-
 
   return (
     <>
@@ -114,9 +109,7 @@ const App = () => {
         handleChange={handleChange}
         handleClick={handleClick}
         handleDelete={handleDelete}
-        // handleEditPost={handleEditPost}
-        modalItem={modalItem}
-        openModal={openModal}
+        count={count}
       />
       <RenderList
         values={values}
@@ -124,16 +117,8 @@ const App = () => {
         handleChange={handleChange}
         handleClick={handleClick}
         handleDelete={handleDelete}
-        // handleEditPost={handleEditPost}
-        modalItem={modalItem}
-        openModal={openModal}
+        count={count}
       />
-      <ModalElement
-        values={values}
-        showModal={showModal}
-        closeModal={closeModal}
-        modalItem={modalItem}
-        />
     </>
     );
   }
