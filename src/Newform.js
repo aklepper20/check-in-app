@@ -18,14 +18,12 @@ const Newform = (props) => {
       className="form-container"
       value={id}>
       <div className="form">
-        <div
+        <span
           className="timestamp"
           value={createdAt}>
             {createdAt}
-        </div>
-        <h2>
-          Self Check-in
-        </h2>
+        </span>
+
          <div className="div-dropdown">
           <label htmlFor="dropdown" className="label-dropdown">What's this post about?</label>
           <input
@@ -68,16 +66,16 @@ const Newform = (props) => {
         </div>
         {!props.isDelete && <div className="form-actions">
           <button
-            className="delete-btn"
+            className="add-btn"
             onClick={() => {handleClick()}}>
-              Add
+              ADD
           </button>
         </div>}
           {props.isDelete && <div>
              <button
-              className="add-btn"
+              className="delete-btn"
               onClick={() => {handleDelete(id)}}>
-                Delete
+                DELETE
             </button>
           </div>}
        </div>

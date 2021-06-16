@@ -1,5 +1,6 @@
 label {
   font-weight: bold;
+  margin-bottom: 8px;
 }
 
 .label-tailwind {
@@ -10,16 +11,17 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .form {
   max-width: 100%;
-  border: 5px solid black;
-  background-color: rgba(199, 225, 230, 1);
-  margin: 12px;
-  padding: 45px;
-  border-radius: 12px;
+  height: 100%;
+  border: 1px solid black;
+  margin-top: 40px;
+  padding: 35px;
+  border-radius: 5px;
+  border: 1px solid #D800FF;
+  background-color: whitesmoke;
 }
 
 h2 {
@@ -29,6 +31,7 @@ h2 {
 input,
 textarea {
   background-color: whitesmoke;
+  border-radius: 5px;
 }
 
 .div-dropdown {
@@ -41,6 +44,7 @@ textarea {
 .textarea-flex {
   display: flex;
   margin-top: 35px;
+  margin-bottom: 40px;
 }
 
 .head-tail-flex,
@@ -53,7 +57,7 @@ textarea {
 }
 
 .message {
-  font-size: 1rem
+  font-size: 1rem;
 }
 
 .form-actions {
@@ -62,34 +66,31 @@ textarea {
 }
 
 button {
-  margin-top: 20px;
-  padding: 5px;
-  font-weight: 500;
-  border-radius: 15px;
+  font-weight: bold;
+  margin-top: 15px;
+  padding: 7px 10px;
+  font-size: 1rem;
+  border-radius: 5px;
   border: none;
-  padding: 7px;
+  color: black;
 }
 
 .add-btn {
-  margin-top: 15px;
+  background-color: #A6FF00;
 }
 
 .add-btn:hover {
   cursor: pointer;
   color: black;
-  border: 1px solid black;
   background-color:rgba(139, 192, 203, 1);
 }
 
 .delete-btn {
-  color: whitesmoke;
-  background-color: #af261c;
+  display: inline;
+  background-color: #FF5800;
 }
 
 .delete-btn:hover {
-
   cursor: pointer;
-  color: black;
-  border: 1px solid black;
   background-color: #dc726a;
 }

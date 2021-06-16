@@ -1,8 +1,9 @@
 .render-list {
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: space-around;
-  flex-direction: row-reverse; */
+  justify-content: space-evenly;
+  background-color: #EEEEEE;
+  padding-top: 15px;
 }
 
 .timestamp {
