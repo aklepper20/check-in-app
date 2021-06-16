@@ -1,8 +1,7 @@
 .render-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  background-color: #EEEEEE;
+  background-color: #d7d7d7;
   padding-top: 15px;
 }
 
