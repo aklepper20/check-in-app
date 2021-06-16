@@ -8,8 +8,8 @@
 }
 
 .content-quote {
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 25px;
+  margin-bottom: 25px;
   font-family: 'Caveat', cursive;
   font-size: 1.3rem;
   font-weight: 700;
@@ -20,5 +20,6 @@
   font-size: small;
   font-weight: 700;
   text-align: right;
+  margin-top: 5px;
   padding-right: 12px;
 }

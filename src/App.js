@@ -101,7 +101,7 @@ const App = () => {
     <PostContext.Provider value={postContextValue}>
       <div className="main-container">
         <Header />
-        <Newform values={values}/>
+        <Newform values={values} />
       </div>
       <RenderQuote content={content} />
       <RenderList

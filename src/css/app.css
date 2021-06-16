@@ -16,15 +16,10 @@ html {
   font-size: 20px;
 }
 
-.mr-1 {
-  margin-right: 5px;
-}
-
 .main-container {
-
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  padding-bottom: 45px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  background-color: #EEEEEE;
 }
-
-/* main color container #0027FF */
