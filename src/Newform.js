@@ -27,6 +27,7 @@ const Newform = (props) => {
          <div className="div-dropdown">
           <label htmlFor="dropdown" className="label-dropdown">What's this post about?</label>
           <input
+            className="text-dropdown"
             type="text"
             required
             name="dropdown"
@@ -39,6 +40,7 @@ const Newform = (props) => {
          <div className="textarea-flex">
           <label htmlFor="message" className="message"></label>
           <textarea
+            className="text-message"
             name="message"
             id="message"
             placeholder="My current feelings are..."
@@ -46,7 +48,7 @@ const Newform = (props) => {
             onChange={handleChange}>
           </textarea>
           <div className="head-tail-flex">
-            <label htmlFor="headwinds">PROS: Headwinds</label>
+            <label htmlFor="headwinds">Headwinds:</label>
             <textarea
               name="headwinds"
               id="headwinds"
@@ -54,7 +56,7 @@ const Newform = (props) => {
               value={headwinds}
               onChange={handleChange}>
             </textarea>
-            <label htmlFor="tailwinds" className="label-tailwind">CONS: Tailwinds</label>
+            <label htmlFor="tailwinds" className="label-tailwind">Tailwinds:</label>
             <textarea
               name="tailwinds"
               id="tailwinds"
