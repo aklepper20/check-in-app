@@ -3,14 +3,13 @@ import { PostContext } from './App';
 
 const Newform = (props) => {
 
-  const { handleChange, handleClick, handleDelete } = useContext(PostContext);
+  const { handleChange, handleClick } = useContext(PostContext);
   const {
     id,
     dropdown,
     message,
     headwinds,
-    tailwinds,
-    createdAt
+    tailwinds
   } = props;
 
   return (
@@ -18,12 +17,6 @@ const Newform = (props) => {
       className="form-container"
       value={id}>
       <div className="form">
-        <span
-          className="timestamp"
-          value={createdAt}>
-            {createdAt}
-        </span>
-
          <div className="div-dropdown">
           <label htmlFor="dropdown" className="label-dropdown">What's this post about?</label>
           <input

@@ -8,11 +8,16 @@ const RenderList = (props) => {
     posts
   } = props;
 
+  const postsRenderArray = posts.reverse();
+
   return (
    <div className="render-list">
-      {posts.map((post) => (
+      {postsRenderArray.map((post) => (
         <div key={post.id} className="render-container">
           <div className="render-card">
+             <span className="timestamp">
+            {post.createdAt}
+          </span>
             <div className="render-dropdown">
               {post.dropdown}
             </div>
@@ -34,7 +39,7 @@ const RenderList = (props) => {
         </div>
         ))}
     </div>
-  )
+  );
 };
 
 export default RenderList;
