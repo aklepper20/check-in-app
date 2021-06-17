@@ -20,9 +20,8 @@ const Newform = (props) => {
          <div className="div-dropdown">
           <label htmlFor="dropdown" className="label-dropdown">What's this post about?</label>
           <input
-            className=""
+            className="dropdown"
             type="text"
-            required
             name="dropdown"
             id="dropdown"
             placeholder="Thoughts/Ideas/Goals?"

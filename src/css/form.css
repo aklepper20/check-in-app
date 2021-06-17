@@ -32,7 +32,6 @@ h2 {
   text-align: center;
 }
 
-input,
 textarea {
   background-color: whitesmoke;
   border-radius: 5px;
@@ -55,6 +54,11 @@ textarea {
   justify-content: center;
   align-items: center;
   margin-top: 10px;
+}
+
+.dropdown {
+  max-width: 100%;
+  font-size: 1rem;
 }
 
 .textarea-flex {
