@@ -1,29 +1,40 @@
-import React from 'react';
-import Newform from './Newform';
+import React, { useContext } from 'react';
+import { PostContext } from './App';
 
 const RenderList = (props) => {
 
+  const { handleDelete } = useContext(PostContext);
   const {
     posts
   } = props;
 
-  const arrPosts = posts.reverse();
-  console.log(arrPosts)
-
   return (
-
    <div className="render-list">
-      {arrPosts.map(post => {
-        return (
-          <Newform
-            key={post.id}
-            {...post}
-            isDelete={true}
-          />
-        )
-      })}
-      </div>
+      {posts.map((post) => (
+        <div key={post.id} className="render-container">
+          <div className="render-card">
+            <div className="render-dropdown">
+              {post.dropdown}
+            </div>
+            <div className="render-message">
+              {post.message}
+            </div>
+            <div className="render-headwinds">
+              {post.headwinds}
+            </div>
+            <div className="render-tailwinds">
+              {post.tailwinds}
+            </div>
+            <button
+              className="delete-btn"
+              onClick={() => {handleDelete(post.id)}}>
+                DELETE
+            </button>
+          </div>
+        </div>
+        ))}
+    </div>
   )
-}
+};
 
 export default RenderList;

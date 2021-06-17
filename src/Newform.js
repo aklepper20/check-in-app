@@ -27,7 +27,7 @@ const Newform = (props) => {
          <div className="div-dropdown">
           <label htmlFor="dropdown" className="label-dropdown">What's this post about?</label>
           <input
-            className="text-dropdown"
+            className=""
             type="text"
             required
             name="dropdown"
@@ -66,24 +66,16 @@ const Newform = (props) => {
             </textarea>
           </div>
         </div>
-        {!props.isDelete && <div className="form-actions">
+        <div className="form-actions">
           <button
             className="add-btn"
             onClick={() => {handleClick()}}>
               ADD
           </button>
-        </div>}
-          {props.isDelete && <div>
-             <button
-              className="delete-btn"
-              onClick={() => {handleDelete(id)}}>
-                DELETE
-            </button>
-          </div>}
+        </div>
        </div>
     </div>
   )
-
 };
 
 export default Newform;
