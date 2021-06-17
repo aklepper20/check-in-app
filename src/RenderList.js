@@ -8,11 +8,20 @@ const RenderList = (props) => {
     posts
   } = props;
 
-  const postsRenderArray = posts.reverse();
+ function reversePostsArr({ posts }) {
+   let reverseArr = [];
+     for (let i = posts.length - 1; i >= 0; i--) {
+      let index = posts[i]
+      reverseArr.push(index)
+     }
+     return reverseArr
+ }
+
+ const postsArr = reversePostsArr({ posts });
 
   return (
    <div className="render-list">
-      {postsRenderArray.map((post) => (
+      {postsArr.map((post) => (
         <div key={post.id} className="render-container">
           <div className="render-card">
              <span className="timestamp">
