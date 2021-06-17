@@ -15,7 +15,7 @@ const RenderList = (props) => {
       reverseArr.push(index)
      }
      return reverseArr
- }
+ };
 
  const postsArr = reversePostsArr({ posts });
 

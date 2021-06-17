@@ -1,11 +1,44 @@
 .render-list {
   display: flex;
   flex-wrap: wrap;
-  background-color: #d7d7d7;
+  background-color: #dfdfdf;
   padding-top: 15px;
+}
+
+.render-container {
+  display: flex;
+  justify-content: center;
+  width: 300px;
+  height: 350px;
+  background-color: #ffa633;
+  margin: 20px;
+}
+
+.render-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #4fb2aa;
+  width: 270px;
+  height: 315px;
+  margin: 20px;
+  padding-top: 8px;
+  padding-left: 12px;
 }
 
 .timestamp {
   font-size: 1rem;
   font-weight: bold;
+}
+
+.delete-btn {
+  margin-bottom: 8px;
+  font-size: 13px;
+  max-width: 30%;
+  background-color: #FF5800;
+}
+
+.delete-btn:hover {
+  cursor: pointer;
+  background-color: #dc726a;
 }
