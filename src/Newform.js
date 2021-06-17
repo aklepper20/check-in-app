@@ -25,6 +25,7 @@ const Newform = (props) => {
             name="dropdown"
             id="dropdown"
             placeholder="Thoughts/Ideas/Goals?"
+
             value={dropdown}
             onChange={handleChange}
           />
@@ -36,6 +37,7 @@ const Newform = (props) => {
             name="message"
             id="message"
             placeholder="My current feelings are..."
+            maxLength="320"
             value={message}
             onChange={handleChange}>
           </textarea>
