@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { PostContext } from './App';
-
+import { Button, Modal } from 'react-bootstrap';
 const RenderList = (props) => {
 
-  const { handleDelete } = useContext(PostContext);
+  const [modalOpen, setModalOpen] = useState(false)
+  const { handleDelete, updateValues, setUpdateValues, handleUpdate } = useContext(PostContext);
   const {
     posts
   } = props;
@@ -16,6 +17,27 @@ const RenderList = (props) => {
      }
      return reverseArr
  };
+
+ const handleUpdateChange = (e) => {
+     const { name, value } = e.target
+      setUpdateValues({
+        ...updateValues,
+        [name]: value
+      })
+ }
+
+ const handleSaveChanges = (id) => {
+  handleUpdate(id)
+  setModalOpen(!modalOpen)
+ }
+
+ const handleModalOpen = (id) => {
+    setUpdateValues(posts.filter(post => {
+        return post.id === id
+      })[0]
+    );
+    setModalOpen(!modalOpen)
+ }
 
  const postsArr = reversePostsArr({ posts });
 
@@ -41,12 +63,60 @@ const RenderList = (props) => {
             </div>
             <button
               className="delete-btn"
-              onClick={() => {handleDelete(post.id)}}>
+              onClick={() => handleDelete(post.id)}>
                 DELETE
             </button>
+              <button
+              className="edit-btn"
+              onClick={() => handleModalOpen(post.id)}>
+                EDIT
+            </button>
+
           </div>
         </div>
         ))}
+         <>
+
+      <Modal show={modalOpen} onHide={() => setModalOpen(!modalOpen)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <input
+          type="text"
+          name="dropdown"
+          value={updateValues.dropdown}
+          onChange={handleUpdateChange}
+          />
+          <input
+          type="text"
+          name="message"
+          value={updateValues.message}
+          onChange={handleUpdateChange}
+          />
+          <input
+          type="text"
+          name="headwinds"
+          value={updateValues.headwinds}
+          onChange={handleUpdateChange}
+          />
+          <input
+          type="text"
+          name="tailwinds"
+          value={updateValues.tailwinds}
+          onChange={handleUpdateChange}
+          />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setModalOpen(!modalOpen)}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={() => handleSaveChanges(updateValues.id)}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
     </div>
   );
 };

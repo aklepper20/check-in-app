@@ -1,21 +1,14 @@
 import React, { useContext } from 'react';
 import { PostContext } from './App';
 
-const Newform = (props) => {
+const Newform = ({ values }) => {
 
   const { handleChange, handleClick } = useContext(PostContext);
-  const {
-    id,
-    dropdown,
-    message,
-    headwinds,
-    tailwinds
-  } = props;
 
   return (
     <div
       className="form-container"
-      value={id}>
+      value={values.id}>
       <div className="form">
          <div className="div-dropdown">
           <label htmlFor="dropdown" className="label-dropdown">What's this post about?</label>
@@ -25,8 +18,7 @@ const Newform = (props) => {
             name="dropdown"
             id="dropdown"
             placeholder="Thoughts/Ideas/Goals?"
-
-            value={dropdown}
+            value={values.dropdown}
             onChange={handleChange}
           />
         </div>
@@ -38,7 +30,7 @@ const Newform = (props) => {
             id="message"
             placeholder="My current feelings are..."
             maxLength="320"
-            value={message}
+            value={values.message}
             onChange={handleChange}>
           </textarea>
           <div className="head-tail-flex">
@@ -47,7 +39,7 @@ const Newform = (props) => {
               name="headwinds"
               id="headwinds"
               placeholder="What are you rockin' at?"
-              value={headwinds}
+              value={values.headwinds}
               onChange={handleChange}>
             </textarea>
             <label htmlFor="tailwinds" className="label-tailwind">Tailwinds:</label>
@@ -55,7 +47,7 @@ const Newform = (props) => {
               name="tailwinds"
               id="tailwinds"
               placeholder="Game plan for those obstacles.."
-              value={tailwinds}
+              value={values.tailwinds}
               onChange={handleChange}>
             </textarea>
           </div>
@@ -63,7 +55,7 @@ const Newform = (props) => {
         <div className="form-actions">
           <button
             className="add-btn"
-            onClick={() => {handleClick()}}>
+            onClick={handleClick}>
               ADD
           </button>
         </div>

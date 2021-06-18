@@ -24,6 +24,14 @@ const App = () => {
       id: uuidv4(),
       createdAt: moment().format("MMM Do YY")
     });
+  const [updateValues, setUpdateValues] = useState({
+      dropdown: '',
+      message: '',
+      headwinds: '',
+      tailwinds: '',
+      id: uuidv4(),
+      createdAt: moment().format("MMM Do YY")
+  })
 
   useEffect(() => {
     fetchData();
@@ -52,18 +60,18 @@ const App = () => {
 
   const content = quoteItem;
 
-    const handleClick = () => {
-
-      if (values.dropdown === '' || values.message === '' ||
+    const handleClick = (e) => {
+      e.preventDefault()
+;      if (values.dropdown === '' || values.message === '' ||
           values.headwinds === '' || values.tailwinds === '') {
         swal('Entry Error:', 'Please make sure all inputs are filled out.')
         return
       }
 
       let updatedPosts = [
-        ...posts
+        ...posts, values //this current post array and add on the current state of the values object. Acts as the pushing values into the array
       ]
-      updatedPosts.push(values)
+
       setPosts(updatedPosts)
       setValues({
           dropdown: '',
@@ -75,7 +83,6 @@ const App = () => {
         })
     };
 
-
     const handleChange = (e) => {
       const { name, value } = e.target
       setValues({
@@ -83,6 +90,16 @@ const App = () => {
         [name]: value
       })
     };
+
+    const handleUpdate = (id) => {
+      posts.forEach((post, index) => {
+        if (post.id === id) {
+          const updatedPostsArray = posts
+          updatedPostsArray.splice(index, 1, updateValues)
+          setPosts(updatedPostsArray)
+        }
+      })
+    }
 
     const handleDelete = (id) => {
       setPosts(posts.filter(post => {
@@ -93,7 +110,10 @@ const App = () => {
      const postContextValue = {
       handleClick,
       handleChange,
-      handleDelete
+      handleDelete,
+      updateValues,
+      setUpdateValues,
+      handleUpdate
     };
 
   return (
