@@ -19,7 +19,7 @@ const RenderList = (props) => {
  };
 
  const handleUpdateChange = (e) => {
-     const { name, value } = e.target
+   const { name, value } = e.target
       setUpdateValues({
         ...updateValues,
         [name]: value
@@ -45,32 +45,41 @@ const RenderList = (props) => {
    <div className="render-list">
       {postsArr.map((post) => (
         <div key={post.id} className="render-container">
-          <div className="render-card">
-             <span className="timestamp">
-            {post.createdAt}
-          </span>
-            <div className="render-dropdown">
-              {post.dropdown}
-            </div>
+
+            <div className="render-card">
+              <div className="render-actions">
+                <span className="timestamp">
+                  {post.createdAt}
+                </span>
+                  <div className="btn-flex">
+                    <button
+                      className="edit-btn"
+                      onClick={() => handleModalOpen(post.id)}>
+                        EDIT
+                    </button>
+                    <button
+                      className="delete-btn"
+                      onClick={() => handleDelete(post.id)}>
+                        DELETE
+                    </button>
+                  </div>
+              </div>
+
+
+          <div>
+            <h3 className="render-dropdown">{post.dropdown}</h3>
+          </div>
+          <div className="renderlist">
             <div className="render-message">
-              {post.message}
+              <strong>ENTRY:</strong> <p>{post.message}</p>
             </div>
             <div className="render-headwinds">
-              {post.headwinds}
+              <strong>HEADWINDS:</strong> <p>{post.headwinds}</p>
             </div>
             <div className="render-tailwinds">
-              {post.tailwinds}
+              <strong>TAILWINDS:</strong> <p>{post.tailwinds}</p>
             </div>
-            <button
-              className="delete-btn"
-              onClick={() => handleDelete(post.id)}>
-                DELETE
-            </button>
-              <button
-              className="edit-btn"
-              onClick={() => handleModalOpen(post.id)}>
-                EDIT
-            </button>
+          </div>
 
           </div>
         </div>

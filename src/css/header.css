@@ -4,11 +4,13 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  flex-wrap: wrap;
   color: #3b5a9d;
 }
 
 .header {
   margin: 0;
+
 }
 
 .sub-header {
@@ -18,4 +20,12 @@
 
 .quick {
   font-size: 3.5rem;
+}
+
+@media (max-width: 480px) {
+  .header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
