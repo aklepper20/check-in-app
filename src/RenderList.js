@@ -64,8 +64,6 @@ const RenderList = (props) => {
                     </button>
                   </div>
               </div>
-
-
           <div>
             <h3 className="render-dropdown">{post.dropdown}</h3>
           </div>
@@ -80,15 +78,13 @@ const RenderList = (props) => {
               <strong>TAILWINDS:</strong> <p>{post.tailwinds}</p>
             </div>
           </div>
-
           </div>
         </div>
         ))}
          <>
-
       <Modal show={modalOpen} onHide={() => setModalOpen(!modalOpen)}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title className="modal-header">Edit Entry</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <input
