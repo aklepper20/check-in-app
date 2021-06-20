@@ -44,3 +44,9 @@ input {
  background-color: #eeff00;
  color: black;
 }
+
+@media (max-width: 522px) {
+  .modal-content {
+    justify-content: center;
+  }
+}

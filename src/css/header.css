@@ -22,7 +22,7 @@
   font-size: 3.5rem;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 522px) {
   .header {
     display: flex;
     flex-wrap: wrap;
