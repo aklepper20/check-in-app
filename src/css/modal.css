@@ -10,6 +10,25 @@ button {
   padding: 10px;
 }
 
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.modal-dropdown {
+  font-weight: bold;
+}
+
+label {
+  margin-top: 13px;
+}
+
+input {
+  margin-top: 12px;
+  height: fit-content;
+}
+
 .btn-secondary {
   border: none;
 }

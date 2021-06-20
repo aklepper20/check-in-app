@@ -45,7 +45,6 @@ const RenderList = (props) => {
    <div className="render-list">
       {postsArr.map((post) => (
         <div key={post.id} className="render-container">
-
             <div className="render-card">
               <div className="render-actions">
                 <span className="timestamp">
@@ -81,30 +80,35 @@ const RenderList = (props) => {
           </div>
         </div>
         ))}
-         <>
+        <>
       <Modal show={modalOpen} onHide={() => setModalOpen(!modalOpen)}>
         <Modal.Header closeButton>
           <Modal.Title className="modal-header">Edit Entry</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          <label htmlFor="dropdown" className="modal-dropdown">Entry Title:</label>
           <input
+          className="modal-dropdown"
           type="text"
           name="dropdown"
           value={updateValues.dropdown}
           onChange={handleUpdateChange}
           />
+          <label htmlFor="message">Message:</label>
           <input
           type="text"
           name="message"
           value={updateValues.message}
           onChange={handleUpdateChange}
           />
+          <label htmlFor="headwinds">Headwinds:</label>
           <input
           type="text"
           name="headwinds"
           value={updateValues.headwinds}
           onChange={handleUpdateChange}
           />
+          <label htmlFor="dropdown">Tailwinds:</label>
           <input
           type="text"
           name="tailwinds"

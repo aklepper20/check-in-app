@@ -11,7 +11,7 @@ const Newform = ({ values }) => {
       value={values.id}>
       <div className="form">
          <div className="div-dropdown">
-          <label htmlFor="dropdown" className="label-dropdown">What's this post about?</label>
+          <label htmlFor="dropdown" className="label-dropdown">What's this entry about?</label>
           <input
             className="dropdown"
             type="text"
