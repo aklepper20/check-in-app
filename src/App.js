@@ -15,7 +15,6 @@ const LOCAL_STORAGE_KEY = 'journal.posts';
 const App = () => {
 
   const [quoteItem, setQuoteItem] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState([]);
   const [values, setValues] = useState({
       dropdown: '',
@@ -53,7 +52,6 @@ const App = () => {
       .then((res) => {
         console.log(res.data);
         setQuoteItem(Object.values(res.data));
-        setLoading(false)
       }).catch((err) => {
         console.log(err)
       });
@@ -70,7 +68,7 @@ const App = () => {
       }
 
       let updatedPosts = [
-        ...posts, values //this current post array and add on the current state of the values object. Acts as the pushing values into the array
+        ...posts, values
       ]
 
       setPosts(updatedPosts)
@@ -116,8 +114,6 @@ const App = () => {
       setUpdateValues,
       handleUpdate
     };
-
-    if(loading) return <h1>LOADING...</h1>
 
   return (
     <>
