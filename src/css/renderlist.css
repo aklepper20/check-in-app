@@ -54,6 +54,11 @@
   margin-bottom: 8px;
 }
 
+.render-message {
+  word-break:break-all;
+  width:430px;
+}
+
 p {
   margin-left: 8px;
 }

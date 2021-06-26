@@ -10,7 +10,7 @@ const Newform = ({ values }) => {
       className="form-container"
       value={values.id}>
       <div className="form">
-         <div className="div-dropdown">
+        <div className="div-dropdown">
           <label htmlFor="dropdown" className="label-dropdown">What's this entry about?</label>
           <input
             className="dropdown"
@@ -22,7 +22,7 @@ const Newform = ({ values }) => {
             onChange={handleChange}
           />
         </div>
-         <div className="textarea-flex">
+        <div className="textarea-flex">
           <label htmlFor="message" className="message"></label>
           <textarea
             className="text-message"
@@ -59,7 +59,7 @@ const Newform = ({ values }) => {
               ADD
           </button>
         </div>
-       </div>
+      </div>
     </div>
   )
 };

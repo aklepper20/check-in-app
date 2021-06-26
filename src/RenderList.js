@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { PostContext } from './App';
 import { Button, Modal } from 'react-bootstrap';
-import annyang from 'annyang';
 
 const RenderList = (props) => {
 
