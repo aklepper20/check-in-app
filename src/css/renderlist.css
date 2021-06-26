@@ -54,9 +54,11 @@
   margin-bottom: 8px;
 }
 
-.render-message {
-  word-break:break-all;
-  width:430px;
+.render-message,
+.render-headwinds,
+.render-tailwinds {
+  word-break: break-all;
+  width: 430px;
 }
 
 p {
