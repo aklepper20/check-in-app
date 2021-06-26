@@ -15,6 +15,7 @@ const LOCAL_STORAGE_KEY = 'journal.posts';
 const App = () => {
 
   const [quoteItem, setQuoteItem] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState([]);
   const [values, setValues] = useState({
       dropdown: '',
@@ -46,13 +47,13 @@ const App = () => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(posts))
   }, [posts]);
 
-
  const fetchData = () => {
     const ENDPOINT = 'https://free-quotes-api.herokuapp.com/';
     axios(ENDPOINT)
       .then((res) => {
         console.log(res.data);
         setQuoteItem(Object.values(res.data));
+        setLoading(false)
       }).catch((err) => {
         console.log(err)
       });
@@ -61,8 +62,8 @@ const App = () => {
   const content = quoteItem;
 
     const handleClick = (e) => {
-      e.preventDefault()
-;      if (values.dropdown === '' || values.message === '' ||
+      e.preventDefault();
+      if (values.dropdown === '' || values.message === '' ||
           values.headwinds === '' || values.tailwinds === '') {
         swal('Entry Error:', 'Please make sure all inputs are filled out.')
         return
@@ -101,7 +102,7 @@ const App = () => {
       })
     }
 
-    const handleDelete = (id) => {
+     const handleDelete = (id) => {
       setPosts(posts.filter(post => {
         return post.id !== id
       }));
@@ -115,6 +116,8 @@ const App = () => {
       setUpdateValues,
       handleUpdate
     };
+
+    if(loading) return <h1>LOADING...</h1>
 
   return (
     <>
