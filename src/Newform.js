@@ -19,6 +19,7 @@ const Newform = ({ values }) => {
             id="dropdown"
             placeholder="Thoughts/Ideas/Goals?"
             value={values.dropdown}
+            maxLength={14}
             onChange={handleChange}
           />
         </div>
@@ -29,7 +30,7 @@ const Newform = ({ values }) => {
             name="message"
             id="message"
             placeholder="My current feelings are..."
-            maxLength="320"
+            maxLength={215}
             value={values.message}
             onChange={handleChange}>
           </textarea>
@@ -39,6 +40,7 @@ const Newform = ({ values }) => {
               name="headwinds"
               id="headwinds"
               placeholder="What are you rockin' at?"
+              maxLength={155}
               value={values.headwinds}
               onChange={handleChange}>
             </textarea>
@@ -47,6 +49,7 @@ const Newform = ({ values }) => {
               name="tailwinds"
               id="tailwinds"
               placeholder="Game plan for those obstacles.."
+              maxLength={155}
               value={values.tailwinds}
               onChange={handleChange}>
             </textarea>
