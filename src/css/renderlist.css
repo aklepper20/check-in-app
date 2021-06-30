@@ -102,6 +102,11 @@ p {
     height: 60px;
   }
 
+  .render-message,
+  .render-dropdown {
+    padding-right: 5px;
+  }
+
   .render-headwinds,
   .render-tailwinds {
     padding-right: 5px;
