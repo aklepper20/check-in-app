@@ -97,6 +97,7 @@ const RenderList = (props) => {
           />
           <label htmlFor="message">Message:</label>
           <input
+          className="modal-message"
           type="text"
           name="message"
           value={updateValues.message}
@@ -104,6 +105,7 @@ const RenderList = (props) => {
           />
           <label htmlFor="headwinds">Headwinds:</label>
           <input
+          className="modal-headwinds"
           type="text"
           name="headwinds"
           value={updateValues.headwinds}
@@ -111,6 +113,7 @@ const RenderList = (props) => {
           />
           <label htmlFor="dropdown">Tailwinds:</label>
           <input
+          className="modal-tailwinds"
           type="text"
           name="tailwinds"
           value={updateValues.tailwinds}

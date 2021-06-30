@@ -20,14 +20,23 @@ button {
   font-weight: bold;
 }
 
+.modal-dropdown,
+.modal-message,
+.modal-headwinds,
+.modal-tailwinds {
+  word-break: break-all;
+  width: 430px;
+}
+
 label {
   margin-top: 13px;
 }
 
 input {
   margin-top: 12px;
-  height: fit-content;
+  height: 50px;
 }
+
 
 .btn-secondary {
   border: none;
