@@ -100,8 +100,25 @@ p {
   background-color: rgb(139, 174, 238);
 }
 
-@media (max-width: 522px) {
+@media (max-width: 1083px) {
   .render-list {
     justify-content: center;
+  }
+}
+
+@media (max-width: 525px) {
+  .render-card {
+    width: 360px;
+    height: 430px;
+  }
+
+  .render-headwinds {
+    margin-top: 40px;
+    height: 60px;
+  }
+
+  .render-headwinds,
+  .render-tailwinds {
+    padding-right: 5px;
   }
 }

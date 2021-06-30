@@ -10,7 +10,6 @@
 
 .header {
   margin: 0;
-
 }
 
 .sub-header {
@@ -22,10 +21,11 @@
   font-size: 3.5rem;
 }
 
-@media (max-width: 522px) {
+@media (max-width: 580px) {
   .header {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
   }
 }

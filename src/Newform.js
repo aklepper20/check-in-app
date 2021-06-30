@@ -19,7 +19,7 @@ const Newform = ({ values }) => {
             id="dropdown"
             placeholder="Thoughts/Ideas/Goals?"
             value={values.dropdown}
-            maxLength={14}
+            maxLength={10}
             onChange={handleChange}
           />
         </div>
