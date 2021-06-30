@@ -118,7 +118,7 @@ const App = () => {
   return (
     <>
     <PostContext.Provider value={postContextValue}>
-      <div className="display-space-evenly">
+      <div className="display-space-evenly main-container">
         <Header />
         <Newform values={values} />
       </div>

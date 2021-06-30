@@ -3,3 +3,41 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
+
+.display-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.display-center-align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.display-justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+.display-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.display-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-direction {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.align-items {
+  align-items: center;
+}

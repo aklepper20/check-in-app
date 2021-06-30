@@ -1,22 +1,15 @@
 .render-list {
-  display: flex;
-  flex-wrap: wrap;
   background-color: #dfdfdf;
   padding-top: 15px;
 }
 
 .render-container {
-  display: flex;
-  justify-content: center;
   background-color: #f5f5f5;
   border: 1px solid #3b5a9d;
   margin: 20px;
 }
 
 .render-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   background-color: #f5f5f5;
   width: 460px;
   height: 420px;
@@ -65,14 +58,7 @@ p {
   margin-left: 8px;
 }
 
-.render-actions {
-  display: flex;
-  justify-content: space-between;
-}
-
 .btn-flex {
-  display: flex;
-  flex-direction: column;
   margin-right: 8px;
 }
 

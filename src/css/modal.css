@@ -11,8 +11,6 @@ button {
 }
 
 .modal-body {
-  display: flex;
-  flex-direction: column;
   margin-top: 10px;
 }
 
@@ -46,7 +44,7 @@ input {
   background: #A6FF00;
   color: black;
   font-weight: bold;
-   border: none;
+  border: none;
 }
 
 .btn-primary:hover {

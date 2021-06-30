@@ -7,13 +7,13 @@ const Newform = ({ values }) => {
 
   return (
     <div
-      className="form-container"
+      className="form-container display-center-align"
       value={values.id}>
       <div className="form">
-        <div className="div-dropdown">
+        <div className="div-dropdown display-center-align flex-direction">
           <label htmlFor="dropdown" className="label-dropdown">What's this entry about?</label>
           <input
-            className="dropdown"
+            className="dropdown display-column"
             type="text"
             name="dropdown"
             id="dropdown"
@@ -23,7 +23,7 @@ const Newform = ({ values }) => {
             onChange={handleChange}
           />
         </div>
-        <div className="textarea-flex">
+        <div className="textarea-flex display-wrap">
           <label htmlFor="message" className="message"></label>
           <textarea
             className="text-message"
@@ -34,7 +34,7 @@ const Newform = ({ values }) => {
             value={values.message}
             onChange={handleChange}>
           </textarea>
-          <div className="head-tail-flex">
+          <div className="head-tail-flex display-column">
             <label htmlFor="headwinds">Headwinds:</label>
             <textarea
               name="headwinds"
@@ -55,7 +55,7 @@ const Newform = ({ values }) => {
             </textarea>
           </div>
         </div>
-        <div className="form-actions">
+        <div className="form-actions display-justify-center">
           <button
             className="add-btn"
             onClick={handleClick}>

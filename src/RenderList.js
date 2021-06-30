@@ -43,15 +43,15 @@ const RenderList = (props) => {
  const postsArr = reversePostsArr({ posts });
 
   return (
-   <div className="render-list">
+   <div className="render-list display-wrap">
       {postsArr.map((post) => (
-        <div key={post.id} className="render-container">
-            <div className="render-card">
-              <div className="render-actions">
+        <div key={post.id} className="render-container display-justify-center">
+            <div className="render-card display-space-between flex-direction">
+              <div className="render-actions display-space-between">
                 <span className="timestamp">
                   {post.createdAt}
                 </span>
-                  <div className="btn-flex">
+                  <div className="btn-flex display-column">
                     <button
                       className="edit-btn"
                       onClick={() => handleModalOpen(post.id)}>
@@ -87,7 +87,7 @@ const RenderList = (props) => {
           <Modal.Title className="modal-header">Edit Entry</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <label htmlFor="dropdown" className="modal-dropdown">Entry Title:</label>
+          <label htmlFor="dropdown" className="modal-dropdown display-column">Entry Title:</label>
           <input
           className="modal-dropdown"
           type="text"
